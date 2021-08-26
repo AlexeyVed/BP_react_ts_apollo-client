@@ -1,0 +1,9 @@
+fragment ListItemAuthor on Author {
+  id
+    firstName
+    lastName
+    posts {
+      id
+      title
+    }
+}

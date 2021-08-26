@@ -2,25 +2,64 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "lint": "eslint ./src/**/*.{ts,tsx}",
+    "lint:fix": "eslint ./src/**/*.{ts,tsx} --fix",
+    "build": "react-scripts build",
+    "type-check": "tsc --noEmit",
+    "dev": "concurrently \"yarn start\" \"yarn graphql:generate:watch\"",
+    "graphql:generate": "graphql codegen",
+    "graphql:generate:watch": "graphql codegen --watch",
+    "graphql:coverage": "graphql coverage",
+    "graphql:validate": "graphql validate"
+  },
   "dependencies": {
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
+    "@apollo/client": "^3.3.13",
+    "dotenv": "^10.0.0",
     "node-sass": "^4.14.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "typescript": "^4.1.2"
+    "typescript": "^4.3.5"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build"
+  "devDependencies": {
+    "@graphql-cli/codegen": "1.17.21",
+    "@graphql-cli/coverage": "2.1.0",
+    "@graphql-cli/validate": "2.1.0",
+    "@graphql-codegen/introspection": "^1.18.1",
+    "@graphql-codegen/named-operations-object": "^1.18.1",
+    "@graphql-codegen/near-operation-file-preset": "^1.17.13",
+    "@graphql-codegen/schema-ast": "^1.18.1",
+    "@graphql-codegen/typescript": "1.21.1",
+    "@graphql-codegen/typescript-operations": "1.17.15",
+    "@graphql-codegen/typescript-react-apollo": "2.2.3",
+    "@graphql-eslint/eslint-plugin": "^0.9.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-router-dom": "^5.1.8",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.16.1",
+    "concurrently": "^6.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "graphql": "15.3.0",
+    "graphql-cli": "^4.1.0",
+    "graphql.macro": "^1.4.2",
+    "prettier": "^2.3.2",
+    "simple-git-hooks": "^2.6.1"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "resolutions": {
+    "graphql": "15.3.0"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md, graphql}": "prettier --write",
+    "src/**/*.{js,jsx,ts,tsx,graphql}": "yarn run lint:fix"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx eslint ./src/**/*.{ts,tsx} --fix"
   },
   "browserslist": {
     "production": [

@@ -1,0 +1,36 @@
+@import '../../assets/styles/variables.scss';
+@import '../../assets/styles/mixins.scss';
+
+
+.main {
+    margin: $default-margin;
+    height: 100%;
+    position: relative;
+}
+
+.main__top-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main__title {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    height: 40px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+    right: 0;
+    top: 0;
+}
+
+.navigation a {
+    @include general-border;
+    padding: $half-default-margin;
+    width: 100px;
+    text-align: center;
+}

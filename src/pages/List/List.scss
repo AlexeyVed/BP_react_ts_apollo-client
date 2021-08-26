@@ -1,0 +1,51 @@
+@import '../../assets/styles/variables.scss';
+@import '../../assets/styles/mixins.scss';
+
+.list {
+    margin: $default-margin;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.list__top-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list__title {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    height: 40px;
+}
+
+.list__data-wrapper {
+    margin-top: $default-margin;
+}
+
+// .list__data-wrapper__items {}
+
+.header {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.list-item {
+    @include general-border;
+    display: flex;
+    margin-bottom: $half-default-margin;
+    border-radius: 6px;
+    padding: $half-default-margin
+}
+
+.list-item__id {
+    flex: 0 0 20px;
+    font-weight: bold;
+    margin-right: $half-default-margin * 5;
+}
+
+.list-item__field {
+    flex: 0 0 300px;
+    margin-right: $half-default-margin * 10;
+}
