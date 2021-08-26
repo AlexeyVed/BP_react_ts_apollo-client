@@ -1,9 +1,9 @@
-import React from 'react';
+import Routes from './routes'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      React App
+    <div className="app">
+      <Routes />
     </div>
   );
 }
