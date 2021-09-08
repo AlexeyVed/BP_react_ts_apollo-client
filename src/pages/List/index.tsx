@@ -1,13 +1,13 @@
 import ListItem from '../../components/ListItem'
 import ItemsFilter from '../../components/ItemsFilter'
 
-import { useAuthorList } from './__generated__/AuthorList.query'
+import { usePersonList } from '../../qraphql/queries/__generated__/PersonList.query'
 
 import './List.scss'
 import { Link } from 'react-router-dom'
 
 const List = () => {
-  const { data, loading } = useAuthorList()
+  const { data, loading } = usePersonList()
 
   return (
     <div className="list">
@@ -28,8 +28,8 @@ const List = () => {
         </div>
         {loading ? 'Loading...' :
           <div className='list__data-wrapper__items'>
-            {data?.authors.map(author => (
-              <ListItem key={`item-${author.id}`} author={author} />
+            {data?.persons.map((person, index) => (
+              <ListItem key={`item-${person._id}`} index={index} person={person} />
             ))}
           </div>
         }

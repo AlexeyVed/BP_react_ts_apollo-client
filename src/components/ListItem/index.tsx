@@ -1,16 +1,17 @@
 import { FC } from "react";
-import { ListItemAuthor } from './__generated__/ListItem.fragment';
+import { ListItemPerson } from '../../qraphql/fragments/__generated__/PersonItem.fragment';
 
 type ListItemProps = {
-    author: ListItemAuthor;
+    person: ListItemPerson;
+    index: number
 };
 
-const ListItem: FC<ListItemProps> = ({ author }) => {
+const ListItem: FC<ListItemProps> = ({ person, index }) => {
     return (
         <div className='list-item'>
-            <div className='list-item__id'>{author.id}</div>
-            <div className='list-item__field'>{author.firstName}</div>
-            <div className='list-item__field'>{author.lastName}</div>
+            <div className='list-item__id'>{index}</div>
+            <div className='list-item__field'>{person.name}</div>
+            <div className='list-item__field'>{'s'}</div>
         </div>
     );
 }

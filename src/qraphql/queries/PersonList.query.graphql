@@ -1,0 +1,5 @@
+query PersonList {
+  persons {
+    ...ListItemPerson
+  }
+}

@@ -1,0 +1,8 @@
+fragment ListItemPerson on Person {
+    _id
+    name
+    hobbies(populate: true) {
+      _id
+      name
+    }
+}
